@@ -27,33 +27,48 @@ Proyecto_autom/
 ├── README.md          # Documentación del proyecto
 └── .gitignore         # Archivos ignorados
 
-🎯 Elección de Selectores
-Se priorizaron selectores estables y confiables
+### 🎯 Elección de Selectores
 
-ID (By.ID): rápido y confiable.
-Name (By.NAME): útil si el campo lo define.
-XPath (By.XPATH): usado en casos donde no existen IDs o hay que ubicar elementos relativos.
-CSS Selectors (By.CSS_SELECTOR): alternativo cuando XPath se vuelve complejo.
+Se priorizaron selectores estables y confiables:
 
-La elección se basa en estabilidad frente a cambios visuales, facilidad de lectura y mantenibilidad del código.
+- **ID (By.ID):** rápido y confiable.
+- **Name (By.NAME):** útil si el campo lo define.
+- **XPath (By.XPATH):** usado en casos donde no existen IDs o se ubican elementos relativos.
+- **CSS Selectors (By.CSS_SELECTOR):** alternativo cuando XPath se vuelve complejo.
 
-Assertions (Aserciones)
-Las validaciones (assert) se usaron para comprobar:
-Que los elementos esperados están presentes tras acciones (ej: login exitoso).
-Que mensajes o estados del DOM coincidan con lo esperado (ej: “Producto agregado”).
-Que flujos completos (ej: agregar y eliminar del carrito) cumplan su comportamiento esperado.
-Se utilizó self.assertIn, self.assertTrue y self.assertEqual desde el módulo unittest.
+> La elección se basa en estabilidad frente a cambios visuales, facilidad de lectura y mantenibilidad del código.
 
-Patrón de Diseño: Page Object Model (POM)
+---
+
+### Assertions (Aserciones)
+
+Las validaciones (`assert`) se usaron para comprobar:
+
+- Que los elementos esperados están presentes tras acciones (ej: login exitoso).
+- Que mensajes o estados del DOM coincidan con lo esperado (ej: “Producto agregado”).
+- Que flujos completos (ej: agregar y eliminar del carrito) cumplan su comportamiento esperado.
+
+Se utilizó `self.assertIn`, `self.assertTrue` y `self.assertEqual` desde el módulo `unittest`.
+
+---
+
+### Patrón de Diseño: Page Object Model (POM)
+
 Este patrón permite:
-Separar la lógica de las páginas de los casos de prueba.
-Reutilizar código en distintas pruebas.
-Mejorar la mantenibilidad ante cambios de interfaz.
-Cada página tiene su propia clase con los métodos que representan acciones posibles (ej: LoginPage.login_usuario()).
 
-PARA EJECUTAR LAS PRUEBAS
+- Separar la lógica de las páginas de los casos de prueba.
+- Reutilizar código en distintas pruebas.
+- Mejorar la mantenibilidad ante cambios de interfaz.
+
+Cada página tiene su propia clase con los métodos que representan acciones posibles  
+(ej: `LoginPage.login_usuario()`).
+
+---
+
+### Para ejecutar las pruebas
+
+```bash
 python -m unittest discover tests
-
 ---
 
 ###
